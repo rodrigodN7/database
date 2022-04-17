@@ -1,0 +1,17 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+#Create a db called firstb
+CREATE DATABASE firstdb;
+
+#Show the created db
+SHOW DATABASES;
+
+#Select the created db
+USE firstdb;
