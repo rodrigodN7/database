@@ -17,5 +17,4 @@ CREATE DATABASE shortlived;
 USE shortlived
 CREATE TABLE comission (id INT);
 DROP TABLE comission;
-
 DROP DATABASE shortlived;
