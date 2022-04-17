@@ -18,6 +18,6 @@ CREATE DATABADE shortlived;
 DROP DATABASE shortlived;
 
 CREATE TABLE comission (id INT);
-DROP TABLE comission
+DROP TABLE comission;
 
 
