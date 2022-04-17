@@ -13,7 +13,6 @@ DELETE FROM sales_rep WHERE employee_number=5;
 UPDATE sales_rep SET comission=12 WHERE employee_number=1;
 #si se ingresa UPDATE sales_rep SET comission=12, reemplaza todos los registros
 
-
 CREATE DATABASE shortlived;
 USE shortlived
 CREATE TABLE comission (id INT);
