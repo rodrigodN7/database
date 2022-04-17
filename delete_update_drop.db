@@ -15,9 +15,8 @@ UPDATE sales_rep SET comission=12 WHERE employee_number=1;
 
 
 CREATE DATABASE shortlived;
-DROP DATABASE shortlived;
-
+USE shortlived
 CREATE TABLE comission (id INT);
 DROP TABLE comission;
 
-
+DROP DATABASE shortlived;
