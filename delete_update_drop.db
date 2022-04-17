@@ -14,7 +14,7 @@ UPDATE sales_rep SET comission=12 WHERE employee_number=1;
 #si se ingresa UPDATE sales_rep SET comission=12, reemplaza todos los registros
 
 
-CREATE DATABADE shortlived;
+CREATE DATABASE shortlived;
 DROP DATABASE shortlived;
 
 CREATE TABLE comission (id INT);
