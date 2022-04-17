@@ -1,0 +1,27 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+#Select the db to work in
+USE firstdb;
+
+#insert values in the sales_rep table
+INSERT INTO sales_rep
+	(employee_number, surname, first_name, comission)
+VALUES 
+	(1, 'Rive', 'Sol', 10),
+	(2, 'Gordimer', 'Charlene', 15),
+	(3, 'Serote', 'Mike', 10)	
+;
+
+#insert values of only one employee
+INSERT INTO sales_rep(employee_number, surname, first_name, comission) 
+VALUES(4, 'Saw', 'Ines', 17);
+
+#insert values faster, take care, the data must be inserted carefully
+INSERT INTO sales_rep VALUES(5, 'White', 'Kurt', 15);
