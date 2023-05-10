@@ -141,7 +141,7 @@ e.g.
 +-----------------+----------+------------+-----------+
 2 rows in set (0.00 sec)
 
->select * from sales_rep where surname like 'g%';
+> select * from sales_rep where surname like 'g%';
 +-----------------+----------+------------+-----------+
 | employee_number | surname  | first_name | comission |
 +-----------------+----------+------------+-----------+
@@ -151,12 +151,112 @@ e.g.
 
 #search for surname which contains an o in some plase and finishes with o.
 #busca en surname que contenga o en alguna parte y que termine en o
->select * from sales_rep where surname like '%o%o';
+> select * from sales_rep where surname like '%o%o';
 +-----------------+---------+------------+-----------+
 | employee_number | surname | first_name | comission |
 +-----------------+---------+------------+-----------+
 |               1 | Rodrigo | Noriega    |       117 |
 +-----------------+---------+------------+-----------+
 1 row in set (0.00 sec)
+
+#ordenación
+
+> select * from sales_rep order by surname;
++-----------------+----------+------------+-----------+
+| employee_number | surname  | first_name | comission |
++-----------------+----------+------------+-----------+
+|               2 | Gordimer | Charlene   |        15 |
+|               1 | Rive     | Sol        |        10 |
+|               4 | Rive     | Mongane    |        10 |
+|               3 | Serote   | Mike       |        10 |
+|               5 | Smith    | Mike       |        12 |
++-----------------+----------+------------+-----------+
+5 rows in set (0.00 sec)
+
+> select * from sales_rep order by surname,first_name;
++-----------------+----------+------------+-----------+
+| employee_number | surname  | first_name | comission |
++-----------------+----------+------------+-----------+
+|               2 | Gordimer | Charlene   |        15 |
+|               4 | Rive     | Mongane    |        10 |
+|               1 | Rive     | Sol        |        10 |
+|               3 | Serote   | Mike       |        10 |
+|               5 | Smith    | Mike       |        12 |
++-----------------+----------+------------+-----------+
+5 rows in set (0.00 sec)
+
+>select * from sales_rep order by comission desc;
++-----------------+----------+------------+-----------+
+| employee_number | surname  | first_name | comission |
++-----------------+----------+------------+-----------+
+|               2 | Gordimer | Charlene   |        15 |
+|               5 | Smith    | Mike       |        12 |
+|               1 | Rive     | Sol        |        10 |
+|               3 | Serote   | Mike       |        10 |
+|               4 | Rive     | Mongane    |        10 |
++-----------------+----------+------------+-----------+
+5 rows in set (0.00 sec)
+
+> select * from sales_rep order by comission desc, surname ASC,first_name ASC;
+ +-----------------+----------+------------+-----------+
+| employee_number | surname  | first_name | comission |
++-----------------+----------+------------+-----------+
+|               2 | Gordimer | Charlene   |        15 |
+|               5 | Smith    | Mike       |        12 |
+|               4 | Rive     | Mongane    |        10 |
+|               1 | Rive     | Sol        |        10 |
+|               3 | Serote   | Mike       |        10 |
++-----------------+----------+------------+-----------+
+5 rows in set (0.00 sec)
+
+#limitación del número de resultados
+#limit 0 no devuelve registros
+
+> select first_name,surname,comission from sales_rep order by comission desc;
++------------+----------+-----------+
+| first_name | surname  | comission |
++------------+----------+-----------+
+| Charlene   | Gordimer |        15 |
+| Mike       | Smith    |        12 |
+| Sol        | Rive     |        10 |
+| Mike       | Serote   |        10 |
+| Mongane    | Rive     |        10 |
++------------+----------+-----------+
+5 rows in set (0.00 sec)
+
+
+> select first_name,surname,comission from sales_rep order by comission desc limit 1;
++------------+----------+-----------+
+| first_name | surname  | comission |
++------------+----------+-----------+
+| Charlene   | Gordimer |        15 |
++------------+----------+-----------+
+1 row in set (0.00 sec)
+
+> select first_name,surname,comission from sales_rep order by comission desc limit 1,1;
++------------+---------+-----------+
+| first_name | surname | comission |
++------------+---------+-----------+
+| Mike       | Smith   |        12 |
++------------+---------+-----------+
+1 row in set (0.00 sec)
+
+> select first_name,surname,comission from sales_rep order by comission desc limit 0,1;
++------------+----------+-----------+
+| first_name | surname  | comission |
++------------+----------+-----------+
+| Charlene   | Gordimer |        15 |
++------------+----------+-----------+
+1 row in set (0.01 sec)
+
+> select first_name,surname,comission from sales_rep order by comission desc limit 2,3;
++------------+---------+-----------+
+| first_name | surname | comission |
++------------+---------+-----------+
+| Sol        | Rive    |        10 |
+| Mike       | Serote  |        10 |
+| Mongane    | Rive    |        10 |
++------------+---------+-----------+
+3 rows in set (0.00 sec)
 
 
