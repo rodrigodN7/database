@@ -82,7 +82,3 @@ select * from sales_rep;
 #Delete complete data from a table without deleting the table structure
 truncate table sales_rep
 
-#insertar datos desde un archivo de texto con LOAD DATA
-#el formato debe ser .csv utf-8,
-e.g.
-
