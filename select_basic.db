@@ -1,0 +1,34 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+#Select the db to work in
+USE firstdb;
+
+SELECT comission FROM sales_rep WHERE surname='Gordimer';
+
+SELECT comission, employee_number FROM sales_rep WHERE surname='Gordimer';
+
+SELECT * FROM sales_rep WHERE surname='Gordimer';
+
+SELECT * FROM sales_rep WHERE comission > 10 OR surname='Rive' AND first_name='Sol';
+
+SELECT * FROM sales_rep WHERE comission > 10 AND surname='Rive' OR first_name='Sol';
+
+SELECT * FROM sales_rep WHERE surname='Rive' AND (first_name='Sol' OR comission > 10);
+
+SELECT * FROM  sales_rep WHERE surname='Serote' AND first_name='Mike';
+
+#correspondecia por patrones
+SELECT * FROM sales_rep WHERE surname LIKE 'Sero%';
+
+SELECT * FROM sales_rep WHERE surname LIKE '%e%';
+
+SELECT * FROM sales_rep WHERE surname LIKE 'e%';
+
+SELECT * FROM sales_rep WHERE surname LIKE '%e%e';

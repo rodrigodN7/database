@@ -1,0 +1,21 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+#Select the db to work in
+USE firstdb;
+
+SELECT AVG(comission) FROM sales_rep;
+
+SELECT MIN(comission) FROM sales_rep;
+
+SELECT SUM(comission) FROM sales_rep;
+
+SELECT 1+1;
+
+SELECT first_name, surname, comission + 1 FROM saels_rep;

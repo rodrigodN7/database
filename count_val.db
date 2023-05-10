@@ -1,0 +1,18 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+#Select the db to work in
+USE firstdb;
+
+SELECT COUNT(surname) FROM sales_rep;
+
+SELECT COUNT(*) FROM sales_rep;
+
+SELECT COUNT(DISTINCT surname) FROM sales_rep;
+

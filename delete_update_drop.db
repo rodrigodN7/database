@@ -1,0 +1,20 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+DELETE FROM sales_rep WHERE employee_number=5;
+#si se ingresa DELETE FROM sales_rep; se borran todos los registros.
+
+UPDATE sales_rep SET comission=12 WHERE employee_number=1;
+#si se ingresa UPDATE sales_rep SET comission=12, reemplaza todos los registros
+
+CREATE DATABASE shortlived;
+USE shortlived
+CREATE TABLE comission (id INT);
+DROP TABLE comission;
+DROP DATABASE shortlived;

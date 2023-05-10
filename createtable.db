@@ -1,0 +1,24 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+USE firstdb;
+CREATE TABLE sales_rep(
+
+	employee_number INT,
+	surname VARCHAR(40),
+	first_name VARCHAR(30),
+	comission TINYINT
+
+);
+
+#Mostrar tablas existentes en la base datos firstdb
+SHOW TABLES;
+
+#Show a description of the created table
+DESCRIBE sales_rep;

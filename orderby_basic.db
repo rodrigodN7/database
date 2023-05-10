@@ -1,0 +1,32 @@
+#
+#by Rodrigo Noriega
+#Sun Apr 17 01:46:03 UTC 2022
+#
+#All examples were extracted from:
+#La Biblia de Mysql. Anaya Multimedia.
+#
+#
+
+#Select the db to work in
+USE firstdb;
+
+SELECT * FROM sales_rep ORDER BY surname;
+
+SELECT * FROM sales_rep ORDER BY surname,first_name;
+
+SELECT * FROM sales_rep ORDER BY comission DESC;
+
+SELECT * FROM sales_rep ORDER BY comission DESC, surname ASC, first_name ASC;
+
+SELECT first_name, surname, comission FROM sales_rep ORDER BY comission DESC;
+
+#LIMIT permite devolver unicamente un solo registro
+SELECT first_name, surname, comission FROM sales_rep ORDER BY comission DESC LIMIT 1;
+
+SELECT first_name, surname, comission FROM sales_rep ORDER BY comission DESC LIMIT 1,1;
+
+SELECT first_name, surname, comission FROM sales_rep ORDER BY comission DESC LIMIT 0,1;
+
+SELECT first_name, surname, comission FROM sales_rep ORDER BY comission DESC LIMIT 2,3;
+
+
