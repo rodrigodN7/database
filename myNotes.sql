@@ -82,6 +82,3 @@ select * from sales_rep;
 |               3 | Serote   | Mike       |        10 |
 +-----------------+----------+------------+-----------+
 
-#Delete complete data from a table without deleting the table structure
-truncate table sales_rep
-
