@@ -259,4 +259,80 @@ e.g.
 +------------+---------+-----------+
 3 rows in set (0.00 sec)
 
+#max() function
+
+> select max(comission) from sales_rep;
+
++----------------+
+| max(comission) |
++----------------+
+|             15 |
++----------------+
+1 row in set (0.00 sec)
+
+#recuperación de registros distintos
+#puede evitar recuperar información repetida
+> select distinct surname from sales_rep order by surname;
++----------+
+| surname  |
++----------+
+| Gordimer |
+| Rive     |
+| Rive     |
+| Serote   |
+| Smith    |
++----------+
+5 rows in set (0.00 sec)
+
+#count() function
+
+> select count(surname) from sales_rep;
++----------------+
+| count(surname) |
++----------------+
+|              5 |
++----------------+
+1 row in set (0.00 sec)
+
+> select count(*) from sales_rep;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.01 sec)
+
+> select count(distinct surname) from sales_rep;
++-------------------------+
+| count(distinct surname) |
++-------------------------+
+|                       4 |
++-------------------------+
+1 row in set (0.01 sec)
+
+# sum(), avg(), min()
+
+> select avg(comission) from sales_rep;
++----------------+
+| avg(comission) |
++----------------+
+|        11.4000 |
++----------------+
+1 row in set (0.00 sec)
+
+> select min(comission) from sales_rep;
++----------------+
+| min(comission) |
++----------------+
+|             10 |
++----------------+
+1 row in set (0.00 sec)
+
+> select sum(comission) from sales_rep;
++----------------+
+| sum(comission) |
++----------------+
+|             57 |
++----------------+
+1 row in set (0.00 sec)
 
