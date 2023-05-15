@@ -336,3 +336,138 @@ e.g.
 +----------------+
 1 row in set (0.00 sec)
 
+
+#calculos en una consulta
+
+> SELECT 1 + 1;
++-------+
+| 1 + 1 |
++-------+
+|     2 |
++-------+
+1 row in set (0.00 sec)
+
+> select first_name,surname,comission + 1 from sales_rep;
++------------+----------+---------------+
+| first_name | surname  | comission + 1 |
++------------+----------+---------------+
+| Sol        | Rive     |            11 |
+| Charlene   | Gordimer |            16 |
+| Mike       | Serote   |            11 |
+| Mongane    | Rive     |            11 |
+| Mike       | Smith    |            13 |
++------------+----------+---------------+
+5 rows in set (0.00 sec)
+
+#eliminación de registtros
+> delete from sales_rep where employee_number=5;
+Query OK, 1 row affected (0.00 sec)
+
+#cambiar los registros de una tabla
+> update sales_rep set comission=12 where employee_number=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+#DANGER! take where when using delete, if where statement is not used you will delete all the registrys with comission=12!!!!!!!
+
+#eliminación de tablas y bases de datos
+> create table comission(id INT);
+Query OK, 0 rows affected (0.01 sec)
+
+> drop table comission;
+Query OK, 0 rows affected (0.00 sec)
+
+> create database shortlived;
+Query OK, 1 row affected (0.00 sec)
+
+> drop database shortlived;
+Query OK, 0 rows affected (0.00 sec)
+
+#modificar la estructura de una tabla
+> alter table sales_rep add date_joined date;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [firstdb]> describe sales_rep;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_number | int(11)     | YES  |     | NULL    |       |
+| surname         | varchar(40) | YES  |     | NULL    |       |
+| first_name      | varchar(30) | YES  |     | NULL    |       |
+| comission       | tinyint(4)  | YES  |     | NULL    |       |
+| date_joined     | date        | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+#Nota: date almacena datos en formato AAAA-MM-DD, si se desean introducir fechas enotros formatos como MM-DD-AAAA se nececitan realizar ajustes.
+
+> alter table sales_rep add year_born year;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [firstdb]> describe sales_rep;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_number | int(11)     | YES  |     | NULL    |       |
+| surname         | varchar(40) | YES  |     | NULL    |       |
+| first_name      | varchar(30) | YES  |     | NULL    |       |
+| comission       | tinyint(4)  | YES  |     | NULL    |       |
+| date_joined     | date        | YES  |     | NULL    |       |
+| year_born       | year(4)     | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+#modificación de una definición de columna
+> alter table sales_rep change year_born birthday date;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [firstdb]> describe sales_rep;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_number | int(11)     | YES  |     | NULL    |       |
+| surname         | varchar(40) | YES  |     | NULL    |       |
+| first_name      | varchar(30) | YES  |     | NULL    |       |
+| comission       | tinyint(4)  | YES  |     | NULL    |       |
+| date_joined     | date        | YES  |     | NULL    |       |
+| birthday        | date        | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+#para cambiar definición pero no el nombre de columna:
+> alter table sales_rep change birthday birthday year;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [firstdb]> describe sales_rep;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_number | int(11)     | YES  |     | NULL    |       |
+| surname         | varchar(40) | YES  |     | NULL    |       |
+| first_name      | varchar(30) | YES  |     | NULL    |       |
+| comission       | tinyint(4)  | YES  |     | NULL    |       |
+| date_joined     | date        | YES  |     | NULL    |       |
+| birthday        | year(4)     | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+#se puede usar modify sin que resulte necesario repetir el nombre.
+> alter table sales_rep modify birthday date;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [firstdb]> describe sales_rep;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_number | int(11)     | YES  |     | NULL    |       |
+| surname         | varchar(40) | YES  |     | NULL    |       |
+| first_name      | varchar(30) | YES  |     | NULL    |       |
+| comission       | tinyint(4)  | YES  |     | NULL    |       |
+| date_joined     | date        | YES  |     | NULL    |       |
+| birthday        | date        | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
