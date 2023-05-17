@@ -471,3 +471,52 @@ MariaDB [firstdb]> describe sales_rep;
 | birthday        | date        | YES  |     | NULL    |       |
 +-----------------+-------------+------+-----+---------+-------+
 6 rows in set (0.00 sec)
+
+#cambiar el nombre de una columna
+
+> alter table sales_rep add enhancement_value int;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+
+> alter table sales_rep rename cash_flow_specialist;
+Query OK, 0 rows affected (0.01 sec)
+
+> show tables;
++----------------------+
+| Tables_in_firstdb    |
++----------------------+
+| cash_flow_specialist |
++----------------------+
+1 row in set (0.00 sec)
+
+> alter table cash_flow_specialist rename to sales_rep;
+Query OK, 0 rows affected (0.01 sec)
+
+>show tables;
++-------------------+
+| Tables_in_firstdb |
++-------------------+
+| sales_rep         |
++-------------------+
+1 row in set (0.00 sec)
+
+> alter table sales_rep drop enhancement_value;
+Query OK, 4 rows affected (0.01 sec)               
+Records: 4  Duplicates: 0  Warnings: 0
+
+> describe sales_rep;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_number | int(11)     | YES  |     | NULL    |       |
+| surname         | varchar(40) | YES  |     | NULL    |       |
+| first_name      | varchar(30) | YES  |     | NULL    |       |
+| comission       | tinyint(4)  | YES  |     | NULL    |       |
+| date_joined     | date        | YES  |     | NULL    |       |
+| birthday        | date        | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+
+
